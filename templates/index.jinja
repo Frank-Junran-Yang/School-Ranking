@@ -1,0 +1,134 @@
+{% extends 'base.jinja' %}
+
+{% block title %}My Website{% endblock %}
+
+{% block body %}
+{# <img src = "{{url_for('static', filename = 'img/logo.jpg')}}"> #}
+</br></br></br></br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div id="privateschools" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card">
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <img src="{{url_for('static', filename = 'Private School.jpg')}}" class="card-img-top" alt="..." object-fit= cover width="500" height="300">
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title">Private Schools</h5>
+                    <p class="card-text">We Have {{prilen}} Private Schools</p>
+                    <a href="private" class="btn btn-primary">See All Private Schools</a>
+                    </div>
+                </div>
+            </div>
+            {% for private in privates %}
+            <div class="carousel-item">
+                <div class="card">
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <img src="{{url_for('static', filename = '{}.jpg'.format(private.name))}}" class="card-img-top" alt="..." object-fit= cover; width="500" height="300">
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title">{{private.name}}</h5>
+                    <p class="card-text">{{private.location}}</p>
+                    <a href="{{url_for('privateschool',schoolname=private.name)}}" class="btn btn-primary">See The School</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#privateschools" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#privateschools" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        </div>
+        <div class="col">
+        <div id="publicschools" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card" >
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <img src="{{url_for('static', filename = 'Public School.jpeg')}}" class="card-img-top" alt="..." object-fit=cover; width="500" height="300">
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title">Public Schools</h5>
+                    <p class="card-text">We Have {{publen}} Public Schools</p>
+                    <a href="public" class="btn btn-primary">See All Public Schools</a>
+                    </div>
+                </div>
+            </div>
+            {% for public in publics %}
+            <div class="carousel-item">
+                <div class="card">
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <img src="{{url_for('static', filename = '{}.jpg'.format(public.name))}}" class="card-img-top" alt="..." object-fit= cover; width="500" height="300">
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title">{{public.name}}</h5>
+                    <p class="card-text">{{public.location}}</p>
+                    <a href="{{url_for('publicschool',schoolname=public.name)}}" class="btn btn-primary">See The School</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#publicschools" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#publicschools" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        </div>
+        <div class="col">
+        <div id="boardingschools" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card">
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <img src="{{url_for('static', filename = 'Boarding School.jpg')}}" class="card-img-top" alt="..." object-fit= cover; width="500" height="300">
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title">Boarding Schools</h5>
+                    <p class="card-text">We Have {{boalen}} Boarding Schools</p>
+                    <a href="boarding" class="btn btn-primary">See All Boarding Schools</a>
+                    </div>
+                </div>
+            </div>
+            {% for boarding in boardings %}
+            <div class="carousel-item">
+                <div class="card">
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <img src="{{url_for('static', filename = '{}.jpg'.format(boarding.name))}}" class="card-img-top" alt="..." object-fit= cover; width="500" height="300">
+                    </div>
+                    <div class="card-body">
+                    <h5 class="card-title">{{boarding.name}}</h5>
+                    <p class="card-text">{{boarding.location}}</p>
+                    <a href="{{url_for('boardingschool',schoolname=boarding.name)}}" class="btn btn-primary">See The School</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#boardingschools" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#boardingschools" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.jinja' %}
+
+{% block title %}Register Page{% endblock %}
+
+{% block body %}
+
+</br></br></br></br></br>
+<div class="container">
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    {% for school in publicschools %}
+        <div class="col-sm-4">
+            <div class="card">
+            <img src="{{url_for('static', filename = '{}.jpg'.format(school.name))}}" class="card-img-top" alt="..." object-fit= cover; width="300" height="300">
+            <div class="card-body">
+                <h5 class="card-title">{{school.name}}</h5>
+                <h6 class="card-text">Rank {{school.rank}}</h6>
+                <a href="{{url_for('publicschool',schoolname=school.name)}}" class="btn btn-primary">See The School</a>
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
